@@ -22,31 +22,31 @@ builder.Services.AddSingleton<IMyService, MyService>(); // Register MyService as
 
 var app = builder.Build();
 
-//app.Use(async (context, next) =>
-//{
-//    var myService = context.RequestServices.GetRequiredService<IMyService>();
-//    // Log the incoming request
-//    Console.WriteLine($"Incoming request: {context.Request.Method} {context.Request.Path}");
-//    myService.LogCreation("Handling incoming request - First Middleware");
-//    // Call the next middleware in the pipeline
-//    await next.Invoke();
-//    // Log the outgoing response
-//    //Console.WriteLine($"Outgoing response: {context.Response.StatusCode}");
-//    //myService.LogCreation("Handled outgoing response");
-//});
+app.Use(async (context, next) =>
+{
+    var myService = context.RequestServices.GetRequiredService<IMyService>();
+    // Log the incoming request
+    Console.WriteLine($"Incoming request: {context.Request.Method} {context.Request.Path}");
+    myService.LogCreation("Handling incoming request - First Middleware");
+    // Call the next middleware in the pipeline
+    await next.Invoke();
+    // Log the outgoing response
+    //Console.WriteLine($"Outgoing response: {context.Response.StatusCode}");
+    //myService.LogCreation("Handled outgoing response");
+});
 
-//app.Use(async (context, next) =>
-//{
-//    var myService = context.RequestServices.GetRequiredService<IMyService>();
-//    myService.LogCreation("Handling incoming request - Second Middleware");
-//    await next.Invoke();
-//});
+app.Use(async (context, next) =>
+{
+    var myService = context.RequestServices.GetRequiredService<IMyService>();
+    myService.LogCreation("Handling incoming request - Second Middleware");
+    await next.Invoke();
+});
 
-//app.MapGet("/", (IMyService service) =>
-//{
-//    service.LogCreation("Handling request to root endpoint");
-//    return Results.Ok("Check the console for service creation logs");
-//});
+app.MapGet("/", (IMyService service) =>
+{
+    service.LogCreation("Handling request to root endpoint");
+    return Results.Ok("Check the console for service creation logs");
+});
 
 app.UseHttpLogging(); // Add the HTTP logging middleware to the request pipeline
 //app.MapGet("/", () => "Hello World!");
