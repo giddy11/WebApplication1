@@ -5,4 +5,6 @@ Accept: application/json
 
 ###
 
-GET {{WebApplication1_HostAddress}}/
+# GET {{WebApplication1_HostAddress}}/
+
+GET {{WebApplication1_HostAddress}}/api/ErrorHandling/division?numerator=10&denominator=0
