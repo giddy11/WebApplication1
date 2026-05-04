@@ -1,758 +1,824 @@
-﻿/*
-    
-============================================================================
-    C# BEGINNERS: KODECAMP 6.0
+/*
     ============================================================================
-
-============================================================================
-    C# FUNDAMENTALS: DATA TYPES & VARIABLES
+    C# FUNDAMENTALS: OPERATORS, EXPRESSIONS & STRING HANDLING
     ============================================================================
 
     LESSON OVERVIEW:
-    This lesson covers the fundamental concepts of data types and variables in C#.
-    By the end, students will understand how to declare, initialize, and use
-    different data types to store and manipulate information.
+    This lesson covers operators, expressions, and string manipulation in C#.
+    By the end, students will understand how to:
+    - Perform calculations and comparisons using operators
+    - Build complex expressions
+    - Manipulate and work with text data
+    - Understand operator precedence
 
+    PREREQUISITE KNOWLEDGE:
+    - Data types (int, double, string, bool, etc.)
+    - Variables and variable declaration
+    - Console.WriteLine() for output
     ============================================================================
 */
 
-// ============================================================================
-// SECTION 1: INTRODUCTION TO C# AND CONSOLE APPS
-// ============================================================================
-
-/*
-    WHAT IS C#?
-    - C# is a modern, object-oriented programming language
-    - Developed by Microsoft
-    - Part of the .NET ecosystem (framework for building applications)
-    - Used for: Web applications, desktop apps, games, mobile apps, etc.
-
-    WHAT IS A CONSOLE APP?
-    - A console app is a program that runs in a text-based interface (terminal/command prompt)
-    - No graphical buttons or windows—just text input and output
-    - Perfect for learning programming basics
-
-    THE Main METHOD:
-    - Entry point of a console application
-    - Code inside Main() executes first when the program runs
-    - Everything starts here!
-*/
-
-// This is the entry point of our program
-//Console.WriteLine("========== C# DATA TYPES & VARIABLES LESSON ==========");
+//Console.WriteLine("═══════════════════════════════════════════════════════════");
+//Console.WriteLine("       C# OPERATORS, EXPRESSIONS & STRING HANDLING");
+//Console.WriteLine("═══════════════════════════════════════════════════════════");
 //Console.WriteLine();
 
 // ============================================================================
-// SECTION 2: WHAT ARE DATA TYPES?
+// SECTION 1: WHAT ARE OPERATORS?
 // ============================================================================
 
 /*
     DEFINITION:
-    A data type is a classification that specifies:
-    - How much memory a variable uses
-    - What kind of values it can store
-    - What operations can be performed on it
+    Operators are symbols that tell C# to perform actions on variables and values.
+    They are the verbs of programming—they DO SOMETHING with data.
 
-    WHY DATA TYPES MATTER:
-    1. MEMORY EFFICIENCY: Different types use different amounts of memory
-    2. CORRECTNESS: Type safety prevents logical errors
-    3. PERFORMANCE: Using the right type makes programs faster
-    4. CLARITY: Types make code easier to understand
+    ANALOGY:
+    Think of operators like actions in real life:
+    - + means "add these numbers together"
+    - - means "subtract one from the other"
+    - > means "is this greater than that?"
+    - = means "store this value in that variable"
 
-    CATEGORIES OF DATA TYPES:
-    - VALUE TYPES: Store actual data (int, double, bool, etc.)
-    - REFERENCE TYPES: Store memory addresses (string, objects, etc.)
-      (We'll focus on value types first as beginners)
+    CATEGORIES OF OPERATORS:
+    1. Arithmetic Operators (+, -, *, /, %)
+    2. Assignment Operators (=, +=, -=, etc.)
+    3. Comparison Operators (==, !=, <, >, <=, >=)
+    4. Logical Operators (&&, ||, !)
+    5. String Operators (+, for concatenation)
+
+    In this lesson, we'll explore each category with examples.
 */
 
-//Console.WriteLine("--- SECTION 2: WHAT ARE DATA TYPES? ---");
-//Console.WriteLine("Data types tell C# what kind of information we're storing.");
+//Console.WriteLine("--- SECTION 1: WHAT ARE OPERATORS? ---");
 //Console.WriteLine();
 
 // ============================================================================
-// SECTION 3: PRIMITIVE (BUILT-IN) DATA TYPES
+// SECTION 2: ARITHMETIC OPERATORS (Mathematical Operations)
 // ============================================================================
 
 /*
-    THE MOST COMMON PRIMITIVE DATA TYPES IN C#:
+    ARITHMETIC OPERATORS:
+    These operators perform mathematical calculations.
 
-    1. INT - Integer (whole numbers)
-       Range: -2,147,483,648 to 2,147,483,647 //2, 147, 483, 648
-       Example: 25, -10, 0, 1000
-       Use for: Age, count, quantity, scores
+    OPERATOR | NAME           | EXAMPLE    | RESULT
+    ═══════════════════════════════════════════════════════════════
+    +        | Addition       | 10 + 5     | 15
+    -        | Subtraction    | 10 - 5     | 5
+    *        | Multiplication | 10 * 5     | 50
+    /        | Division       | 10 / 5     | 2
+    %        | Modulus        | 10 % 3     | 1 (remainder)
 
-    2. DOUBLE - Decimal numbers (high precision)
-       Range: Very large or very small decimal numbers
-       Example: 3.14, -25.5, 0.001
-       Use for: Height, weight, price, measurements
+    IMPORTANT CONCEPTS:
 
-    3. FLOAT - Decimal numbers (less precision than double)
-       Range: Similar to double but less precise
-       Example: 3.14f, 25.5f (note the 'f' suffix)
-       Use for: Graphics, games, when memory matters
+    1. ADDITION (+)
+       - Adds two numbers
+       - Also used for concatenating strings (covered later)
 
-    4. CHAR - Single character
-       Range: Any single character from keyboard
-       Example: 'A', '5', '!', ' ' (space)
-       Use for: Single letters, symbols
+    2. SUBTRACTION (-)
+       - Subtracts second number from first
+       - Can result in negative numbers
 
-    5. BOOL - Boolean (true or false)
-       Values: true or false (only these two)
-       Example: true, false
-       Use for: Yes/No decisions, flags, conditions
+    3. MULTIPLICATION (*)
+       - Multiplies two numbers
+       - Can be used with decimals (double, float)
 
-    6. STRING - Text/sequence of characters
-       Range: Unlimited text
-       Example: "Hello", "Gideon", "I love C#", ""
-       Use for: Names, messages, addresses, any text
+    4. DIVISION (/)
+       - Divides first number by second
+       - Integer division: 10 / 3 = 3 (no remainder shown)
+       - Decimal division: 10.0 / 3 = 3.333...
+
+    5. MODULUS (%) - THE REMAINDER OPERATOR
+       - Returns the REMAINDER after division
+       - Used to find: even/odd numbers, cycles, patterns
+       - 10 % 3 = 1 (10 divided by 3 is 3 with remainder 1)
+       - 10 % 2 = 0 (10 is even—no remainder)
+       - 11 % 2 = 1 (11 is odd—remainder 1)
+
+    OPERATOR PRECEDENCE (Order of operations):
+    C# follows PEMDAS/BODMAS rules:
+    1. * / % (executed first, left to right)
+    2. + - (executed second, left to right)
+
+    Example: 10 + 5 * 2
+    - First: 5 * 2 = 10
+    - Then: 10 + 10 = 20 (NOT 30!)
+
+    Use parentheses to control order:
+    (10 + 5) * 2 = 30
 */
 
-//Console.WriteLine("--- SECTION 3: PRIMITIVE DATA TYPES ---");
+//Console.WriteLine("--- SECTION 2: ARITHMETIC OPERATORS ---");
+//Console.WriteLine();
+
+//int num1 = 10;
+//int num2 = 3;
+
+//Console.WriteLine("Basic Arithmetic Operations:");
+//Console.WriteLine($"{num1} + {num2} = {num1 + num2}");           // 13
+//Console.WriteLine($"{num1} - {num2} = {num1 - num2}");           // 7
+//Console.WriteLine($"{num1} * {num2} = {num1 * num2}");           // 30
+//Console.WriteLine($"{num1} / {num2} = {num1 / num2}");           // 3 (integer division)
+//Console.WriteLine($"{num1} % {num2} = {num1 % num2}");           // 1 (remainder)
+//Console.WriteLine();
+
+//// Decimal division (with double)
+//double decimalNum1 = 10.0;
+//double decimalNum2 = 3.0;
+//Console.WriteLine("Decimal Division (with double):");
+//Console.WriteLine($"{decimalNum1} / {decimalNum2} = {decimalNum1 / decimalNum2}");
+//Console.WriteLine();
+
+//// Operator precedence examples
+//Console.WriteLine("Operator Precedence (PEMDAS/BODMAS):");
+//int result1 = 10 + 5 * 2;
+//Console.WriteLine($"10 + 5 * 2 = {result1} (multiply first: 5*2=10, then 10+10=20)");
+
+//int result2 = (10 + 5) * 2;
+//Console.WriteLine($"(10 + 5) * 2 = {result2} (parentheses first: 10+5=15, then 15*2=30)");
+//Console.WriteLine();
+
+//// Practical example: Modulus for even/odd
+//int testNum = 7;
+//int remainder = testNum % 2;
+//Console.WriteLine($"Is {testNum} even or odd?");
+//Console.WriteLine($"{testNum} % 2 = {remainder}");
+//Console.WriteLine($"Result: {testNum} is {(remainder == 0 ? "EVEN" : "ODD")}");
 //Console.WriteLine();
 
 // ============================================================================
-// SECTION 4 & 5: VARIABLES - DECLARATION & INITIALIZATION
+// SECTION 3: ASSIGNMENT OPERATORS
+// ============================================================================
+
+//int a = 5;
+//int b = a + 5;
+
+//int c = b + 5;
+
+//b += 5; // b = b + 5
+
+
+/*
+    ASSIGNMENT OPERATORS:
+    These operators assign (store) values in variables.
+
+    OPERATOR | MEANING              | EXAMPLE | EQUIVALENT TO
+    ═════════════════════════════════════════════════════════════════
+    =        | Assign               | x = 5   | x = 5
+    +=       | Add and assign       | x += 3  | x = x + 3
+    -=       | Subtract and assign  | x -= 2  | x = x - 2
+    *=       | Multiply and assign  | x *= 4  | x = x * 4
+    /=       | Divide and assign    | x /= 2  | x = x / 2
+    %=       | Modulus and assign   | x %= 3  | x = x % 3
+
+    THE SIMPLE ASSIGNMENT OPERATOR (=):
+    - Assigns the value on the right to the variable on the left
+    - NOT the same as "equals" in math
+    - In programming: x = 5 means "store 5 in x"
+    - In math: x = 5 means "x has the value 5"
+
+    COMPOUND ASSIGNMENT OPERATORS (+=, -=, etc.):
+    - Shorthand for performing an operation AND storing the result
+    - x += 3 is the same as x = x + 3
+    - More concise and commonly used in professional code
+
+    WHY USE COMPOUND OPERATORS?
+    - Cleaner code
+    - Less typing
+    - Shows intent clearly: "add 3 to x"
+    - Commonly used in loops (covered later)
+*/
+
+//Console.WriteLine("--- SECTION 3: ASSIGNMENT OPERATORS ---");
+//Console.WriteLine();
+
+//int score = 10;
+//Console.WriteLine($"Initial score: {score}");
+
+//score += 5;  // score = score + 5
+//Console.WriteLine($"After += 5: {score}");
+
+//score -= 2;  // score = score - 2
+//Console.WriteLine($"After -= 2: {score}");
+
+//score *= 2;  // score = score * 2
+//Console.WriteLine($"After *= 2: {score}");
+
+//score /= 3;  // score = score / 3
+//Console.WriteLine($"After /= 3: {score}");
+
+//score %= 5;  // score = score % 5
+//Console.WriteLine($"After %= 5: {score}");
+//Console.WriteLine();
+
+// ============================================================================
+// SECTION 4: COMPARISON OPERATORS
 // ============================================================================
 
 /*
-    WHAT IS A VARIABLE?
-    - A named container that stores a value
-    - Like a labeled box where we put data
-    - We can retrieve and change the value later
+    COMPARISON OPERATORS:
+    These operators compare two values and return TRUE or FALSE (bool).
 
-    VARIABLE DECLARATION SYNTAX:
-    dataType variableName;
-    Example: int age;
+    OPERATOR | MEANING                | EXAMPLE    | RESULT
+    ═════════════════════════════════════════════════════════════════════
+    ==       | Equal to               | 5 == 5     | true
+    !=       | Not equal to           | 5 != 3     | true
+    <        | Less than              | 3 < 5      | true
+    >        | Greater than           | 5 > 3      | true
+    <=       | Less than or equal     | 5 <= 5     | true
+    >=       | Greater than or equal  | 5 >= 3     | true
 
-    VARIABLE INITIALIZATION:
-    variableName = value;
-    Example: age = 25;
+    IMPORTANT DISTINCTIONS:
 
-    COMBINED (Declaration + Initialization):
-    dataType variableName = value;
-    Example: int age = 25;
-int _ag e1 = 25
+    = (ASSIGNMENT) vs == (COMPARISON)
+    - = assigns a value: x = 5 (store 5 in x)
+    - == compares values: x == 5 (is x equal to 5?)
+    - COMMON BEGINNER MISTAKE: Using = when you mean ==
 
-    VARIABLE NAMING RULES (IMPORTANT):
-    1. Start with a letter or underscore (_)
-    2. Can contain letters, numbers, and underscores
-    3. Cannot contain spaces
-    4. Cannot be a C# keyword (like int, class, etc.) - TASK TO BE DONE
-    5. Case-sensitive (age ≠ Age ≠ AGE)
-    6. Use descriptive names (age is better than a)
-    7. Convention: Use camelCase (firstName, not FirstName for variables)
+    RESULT:
+    - Comparison operators ALWAYS return a bool (true or false)
+    - You can store the result in a bool variable
+    - You can use the result directly in Console.WriteLine()
+
+    USE CASES:
+    - Making decisions (if statements, covered later)
+    - Validating data
+    - Filtering information
+    - Comparing numbers, strings, and other data
 */
 
-//developer 1 - kelvin
-
-//Console.WriteLine("--- SECTION 4 & 5: DECLARING & INITIALIZING VARIABLES ---");
+//Console.WriteLine("--- SECTION 4: COMPARISON OPERATORS ---");
 //Console.WriteLine();
 
-//// Example 1: Integer variable
-//int studentAge = 20;
-//Console.WriteLine("The Student's age is stored in an integer variable:" + studentAge);
-//Console.WriteLine($"Student age: {studentAge}");
+//int age = 20;
+//int requiredAge = 18;
 
-//// Example 2: Double variable (decimal number)
-//double studentHeight = 5.8;
-//Console.WriteLine($"Student height: {studentHeight} feet");
+//Console.WriteLine("Comparison Examples:");
+//Console.WriteLine($"age = {age}, requiredAge = {requiredAge}");
+////Console.WriteLine();
 
-//// Example 3: Char variable (single character)
-//char grade = 'A';
-//Console.WriteLine($"Student grade: {grade}");
+//Console.WriteLine($"{age} == {requiredAge} → {age == requiredAge}");      // false
+//Console.WriteLine($"{age} != {requiredAge} → {age != requiredAge}");      // true
+//Console.WriteLine($"{age} < {requiredAge} → {age < requiredAge}");        // false
+//Console.WriteLine($"{age} > {requiredAge} → {age > requiredAge}");        // true
+//Console.WriteLine($"{age} <= {requiredAge} → {age <= requiredAge}");      // false
+//Console.WriteLine($"{age} >= {requiredAge} → {age >= requiredAge}");      // true
+//Console.WriteLine();
 
-//// Example 4: Bool variable (true/false)
-//bool isEnrolled = true;
-//Console.WriteLine($"Is enrolled: {isEnrolled}");
-
-//// Example 5: String variable (text)
-//string studentName = "Gideon";
-//Console.WriteLine($"Student name: {studentName}");
-
+//// Storing comparison results in a bool variable
+//bool isOldEnough = age >= requiredAge;
+//Console.WriteLine($"Is age {age} >= required age {requiredAge}? {isOldEnough}");
 //Console.WriteLine();
 
 // ============================================================================
-// SECTION 6: PRINTING VARIABLES (THREE METHODS)
-// ============================================================================
-
-//int age = 35;
-//Console.WriteLine("The student's age is age");
-
-//string variable = "First";
-//string variable2 = "Second";
-//Console.WriteLine("Text here " + variable + " more text " + variable2);
-
-//Console.WriteLine($"Text here {variable} more text {variable2}");
-
-/*
-    ════════════════════════════════════════════════════════════════════════════
-    CONCEPT DEEP DIVE: HOW DO WE COMBINE TEXT AND VARIABLES IN OUTPUT?
-    ════════════════════════════════════════════════════════════════════════════
-
-    PROBLEM:
-    We want to print a message that includes both fixed text AND the value
-    stored in a variable. For example, instead of just seeing "20", we want
-    to see "The student's age is 20".
-
-    SOLUTION:
-    C# gives us THREE ways to combine text and variables. Each has different
-    concepts and use cases.
-
-    ════════════════════════════════════════════════════════════════════════════
-    METHOD 1: STRING CONCATENATION (The + Operator)
-    ════════════════════════════════════════════════════════════════════════════
-
-    CONCEPT:
-    "Concatenation" means "joining things together"
-    We use the + operator to join strings end-to-end
-
-    HOW IT WORKS STEP-BY-STEP:
-    Console.WriteLine("The Student's age is stored in an integer variable:" + studentAge);
-
-    Step 1: "The Student's age is stored in an integer variable:" (this is a STRING)
-    Step 2: + (the concatenation operator - joins two things)
-    Step 3: studentAge (contains the value 20, which becomes "20" as text)
-    Result: "The Student's age is stored in an integer variable:20"
-
-    SYNTAX:
-    Console.WriteLine("Text here " + variable + " more text " + variable2);
-
-    WHAT'S HAPPENING UNDER THE HOOD:
-    - C# automatically converts the variable (20) to text ("20")
-    - This conversion is called "implicit conversion" or "type coercion"
-    - The + operator joins strings: "text" + "20" = "text20"
-
-    ADVANTAGES:
-    ✓ Works in older versions of C#
-    ✓ Conceptually simple once you understand +
-
-    DISADVANTAGES:
-    ✗ Gets messy with multiple variables
-    ✗ Easy to miss spaces between strings and variables
-    ✗ Hard to read and maintain
-
-    EXAMPLE - CONCATENATION METHOD:
-    string name = "Ahmed";
-    int age = 25;
-    Console.WriteLine("The Student's age is stored in an integer variable:" + age);
-
-    Output: The Student's age is stored in an integer variable:25
-
-    PROBLEM WITH THIS METHOD:
-    - What if we need: "Ahmed is 25 years old and studies coding"?
-    - It becomes: "Name: " + name + " is " + age + " years old and studies coding"
-    - Notice all the + signs? Hard to read and error-prone!
-
-    ════════════════════════════════════════════════════════════════════════════
-    METHOD 2: STRING INTERPOLATION (The $ prefix with {}) ⭐ RECOMMENDED ⭐
-    ════════════════════════════════════════════════════════════════════════════
-
-    CONCEPT:
-    "Interpolation" means "inserting values into a template"
-    We use $"..." syntax to create a string template with placeholders
-    Variables go inside {curly braces}
-
-    HOW IT WORKS STEP-BY-STEP:
-    Console.WriteLine($"Student age: {studentAge}");
-
-    Step 1: $ tells C# "This is an interpolated string - look for placeholders"
-    Step 2: {studentAge} is a PLACEHOLDER - it will be replaced with the value
-    Step 3: C# looks at the variable studentAge, sees it contains 20
-    Step 4: Replaces {studentAge} with 20, creating: "Student age: 20"
-
-    SYNTAX:
-    Console.WriteLine($"Text here {variable1} more text {variable2}");
-
-    WHAT'S HAPPENING UNDER THE HOOD:
-    - The $ prefix tells C# to parse the string for {placeholders}
-    - C# evaluates the expression inside {}
-    - Replaces {expression} with the result
-    - Much more efficient than concatenation
-
-    ADVANTAGES:
-    ✓ Clean and easy to read
-    ✓ Much easier to maintain
-    ✓ More efficient (C# 6.0+)
-    ✓ Spaces are preserved naturally
-    ✓ Can put expressions inside {}, not just variables
-    ✓ This is the modern C# way (recommended by Microsoft)
-
-    DISADVANTAGES:
-    ✗ Requires C# 6.0 or newer (but .NET 8 has this!)
-
-    EXAMPLE - STRING INTERPOLATION METHOD:
-    string name = "Ahmed";
-    int age = 25;
-    Console.WriteLine($"Student age: {age}");
-
-    Output: Student age: 25
-
-    POWER OF THIS METHOD:
-    Compare concatenation vs interpolation with multiple variables:
-
-    CONCATENATION (messy):
-    Console.WriteLine("Name: " + name + " is " + age + " years old and studies coding");
-
-    STRING INTERPOLATION (clean):
-    Console.WriteLine($"Name: {name} is {age} years old and studies coding");
-
-    Notice how interpolation is much more readable! The sentence is clear
-    and you can see the structure immediately.
-
-    CAN YOU PUT EXPRESSIONS IN {}?
-    YES! You can do math and operations inside {}:
-    Console.WriteLine($"Next year, I'll be {age + 1} years old");
-    Output: Next year, I'll be 26 years old
-
-    ════════════════════════════════════════════════════════════════════════════
-    COMPARISON: CONCATENATION vs STRING INTERPOLATION
-    ════════════════════════════════════════════════════════════════════════════
-
-    SCENARIO: Display student info
-
-    USING CONCATENATION:
-    Console.WriteLine("The Student's age is stored in an integer variable:" + studentAge);
-
-    USING STRING INTERPOLATION:
-    Console.WriteLine($"Student age: {studentAge}");
-
-    READABILITY:
-    - Concatenation: Must scan through all the + signs
-    - Interpolation: Easy to see the text and where values go
-
-    COMPLEXITY WITH MULTIPLE VARIABLES:
-
-    CONCATENATION:
-    Console.WriteLine("Student " + name + " age " + age + " grade " + grade + " enrolled " + enrolled);
-    (Hard to see the pattern!)
-
-    INTERPOLATION:
-    Console.WriteLine($"Student {name} age {age} grade {grade} enrolled {enrolled}");
-    (Clear pattern, easy to read!)
-
-    ════════════════════════════════════════════════════════════════════════════
-    METHOD 3: COMPOSITE FORMATTING (Less common, but useful sometimes) TASK TO BE  DONE
-    ════════════════════════════════════════════════════════════════════════════
-
-    CONCEPT:
-    Uses numbered placeholders {0}, {1}, {2} for each variable
-    Variables are passed as separate parameters after the format string
-
-    SYNTAX:
-    Console.WriteLine("Text {0} more text {1}", variable1, variable2);
-
-    DISADVANTAGES:
-    - Harder to read than interpolation
-    - {0} and {1} are not as clear as {variableName}
-    - More verbose
-
-    ADVANTAGES:
-    - Can be useful for complex formatting scenarios
-    - Works in very old C# versions
-
-    ════════════════════════════════════════════════════════════════════════════
-    RECOMMENDATION FOR BEGINNERS:
-    ════════════════════════════════════════════════════════════════════════════
-
-    🌟 USE STRING INTERPOLATION ($"...{variable}")
-
-    Why?
-    1. It's the modern, recommended way in C#
-    2. Most readable and maintainable
-    3. Most efficient
-    4. Used in professional C# code
-    5. Easiest to understand
-
-    Only use concatenation if:
-    - You're working with very old C# versions (pre-C# 6.0)
-    - You're learning about the + operator as a concept
-
-    Never use concatenation in production modern C# code!
-*/
-
-//Console.WriteLine("--- SECTION 6: PRINTING VARIABLES ---");
-//Console.WriteLine();
-
-//// Method 1: Concatenation (joining with +)
-//Console.WriteLine("Method 1 - Concatenation (using + to join strings):");
-//Console.WriteLine("The Student's age is stored in an integer variable:" + studentAge);
-//Console.WriteLine("Name: " + studentName);
-//Console.WriteLine();
-
-//// Method 2: String Interpolation (using $"...{}")
-//Console.WriteLine("Method 2 - String Interpolation (RECOMMENDED - Modern C# Way):");
-//Console.WriteLine($"Student age: {studentAge}");
-//Console.WriteLine($"Name: {studentName}");
-//Console.WriteLine($"Height: {studentHeight} feet");
-//Console.WriteLine($"Grade: {grade}");
-//Console.WriteLine($"Is Enrolled: {isEnrolled}");
-//Console.WriteLine();
-
-//// COMPARISON: See how much clearer interpolation is!
-//Console.WriteLine("COMPARISON - Same info, two different methods:");
-//Console.WriteLine();
-//Console.WriteLine("❌ Using Concatenation (hard to read):");
-//Console.WriteLine("Student information: " + studentName + " age " + studentAge + " GPA would be calculated");
-//Console.WriteLine();
-//Console.WriteLine("✅ Using Interpolation (clean and clear):");
-//Console.WriteLine($"Student information: {studentName} age {studentAge} GPA would be calculated");
-//Console.WriteLine();
-
-//// You can even put expressions inside {}!
-//Console.WriteLine("BONUS: Expression inside {}: Calculate next year's age");
-//Console.WriteLine($"Next year, {studentName} will be {studentAge + 1} years old");
-//Console.WriteLine();
-
-//// Method 3: Composite Formatting (using {0}, {1}, etc.)
-//Console.WriteLine("Method 3 - Composite Formatting (Less common, but still works):");
-//Console.WriteLine("Name: {0}, Age: {1}", studentName, studentAge);
-//Console.WriteLine();
-
-// ============================================================================
-// SECTION 7: TYPE INFERENCE WITH 'var'
+// SECTION 5: LOGICAL OPERATORS
 // ============================================================================
 
 /*
-    THE 'var' KEYWORD:
-    - Allows C# to automatically figure out the data type
-    - Still type-safe (once assigned, type is locked)
-    - Syntax: var variableName = value;
+    LOGICAL OPERATORS:
+    These operators combine boolean values (true/false) to create more complex conditions.
 
-    WHEN TO USE 'var':
-    - When the type is obvious from context
-    - Example: var student = "Ahmed"; (clearly a string)
+    OPERATOR | NAME        | MEANING                                  | EXAMPLE
+    ═════════════════════════════════════════════════════════════════════════════
+    &&       | AND         | BOTH conditions must be true             | true && false = true
+    ||       | OR          | AT LEAST ONE condition must be true      | false || false = true
+    !        | NOT         | Reverses the boolean value               | !true = false
 
-    WHEN NOT TO USE 'var':
-    - When clarity matters (especially for beginners)
-    - When the type isn't immediately obvious
 
-    BEGINNER RECOMMENDATION:
-    - For now, explicitly write the data type (int, string, etc.)
-    - Use 'var' only when you fully understand types
+    THE && (AND) OPERATOR:
+    - Returns true only if BOTH conditions are true
+    - If either condition is false, result is false
+
+    Truth Table for AND (&&):
+    ┌─────────┬─────────┬──────────┐
+    │ Left    │ Right   │ Result   │
+    ├─────────┼─────────┼──────────┤
+    │ true    │ true    │ true     │
+    │ true    │ false   │ false    │
+    │ false   │ true    │ false    │
+    │ false   │ false   │ false    │
+    └─────────┴─────────┴──────────┘
+
+    THE || (OR) OPERATOR:
+    - Returns true if AT LEAST ONE condition is true
+    - Only returns false if both conditions are false
+
+    Truth Table for OR (||):
+    ┌─────────┬─────────┬──────────┐
+    │ Left    │ Right   │ Result   │
+    ├─────────┼─────────┼──────────┤
+    │ true    │ true    │ true     │
+    │ true    │ false   │ true     │
+    │ false   │ true    │ true     │
+    │ false   │ false   │ false    │
+    └─────────┴─────────┴──────────┘
+
+    THE ! (NOT) OPERATOR:
+    - Reverses the boolean value
+    - !true becomes false
+    - !false becomes true
+    - Used to negate conditions
+
+    PRACTICAL EXAMPLES:
+
+    Example 1: AND (&&)
+    "Is the user age >= 18 AND is the user a student?"
+    Both must be true to proceed.
+
+    Example 2: OR (||)
+    "Does the user have a credit card OR do they have cash?"
+    At least one must be true to make a purchase.
+
+    Example 3: NOT (!)
+    "Is the user NOT an admin?"
+    Restricts access if user is not an admin.
 */
 
-//Console.WriteLine("--- SECTION 7: TYPE INFERENCE WITH 'var' ---");
+//int a = 5;
+//int b = 10;
+//int c = 15;
+//int d = 10;
+
+//int result = a + 10;
+
+//bool answer = 
+
+
+//bool result = 
+
 //Console.WriteLine();
 
-//// Using var (C# infers the type is string)
-//var courseTitle = "C# Fundamentals";
-//Console.WriteLine($"Course: {courseTitle}");
 
-//// Using var (C# infers the type is int)
-//var studentCount = 50;
-//Console.WriteLine($"Students in class: {studentCount}");
 
+//Console.WriteLine("--- SECTION 5: LOGICAL OPERATORS ---");
+//Console.WriteLine();
+
+//bool hasLicense = true;
+//bool hasInsurance = true;
+//bool isStudent = false;
+
+//Console.WriteLine("Logical Operator Examples:");
+//Console.WriteLine($"hasLicense: {hasLicense}");
+//Console.WriteLine($"hasInsurance: {hasInsurance}");
+//Console.WriteLine($"isStudent: {isStudent}");
+//Console.WriteLine();
+
+//// AND (&&) - Both must be true
+//Console.WriteLine("AND (&&) Operator - Both conditions must be true:");
+//bool canDrive = hasLicense || !hasInsurance;
+//Console.WriteLine($"hasLicense && hasInsurance = {canDrive}");
+//Console.WriteLine($"To drive legally, you need BOTH license AND insurance");
+//Console.WriteLine();
+
+//// OR (||) - At least one must be true
+//Console.WriteLine("OR (||) Operator - At least one condition must be true:");
+//bool hasDiscount = isStudent || hasLicense;
+//Console.WriteLine($"isStudent || hasLicense = {hasDiscount}");
+//Console.WriteLine($"You get a discount if you're a STUDENT OR you have a LICENSE");
+//Console.WriteLine();
+
+//// NOT (!) - Reverses the boolean
+//Console.WriteLine("NOT (!) Operator - Reverses the boolean:");
+//bool isNotStudent = !isStudent;
+//Console.WriteLine($"!isStudent = {isNotStudent}");
+//Console.WriteLine();
+
+//// Complex condition
+//Console.WriteLine("Complex Condition (combining operators):");
+
+//bool canRent = !(age >= 18) && (hasLicense || hasInsurance);
+//Console.WriteLine($"Can rent a car if: age >= 18 AND (hasLicense OR hasInsurance)");
+//Console.WriteLine($"Result: {canRent}");
 //Console.WriteLine();
 
 // ============================================================================
-// SECTION 8: CONSTANTS
+// SECTION 6: WHAT ARE EXPRESSIONS?
 // ============================================================================
 
 /*
-    WHAT ARE CONSTANTS?
-    - Variables that CANNOT be changed after initialization
-    - Value is fixed for the entire program
-    - Declared with 'const' keyword
+    DEFINITION:
+    An expression is a combination of operators, variables, and values that
+    evaluates to a single result.
 
-    SYNTAX:
-    const dataType CONSTANT_NAME = value;
+    COMPONENTS OF AN EXPRESSION:
+    - Operands: Values or variables (e.g., 10, x, 5)
+    - Operators: Symbols that perform actions (+, -, *, ==, &&, etc.)
+    - Result: The final value after evaluation
 
-    NAMING CONVENTION FOR CONSTANTS:
-    - Use ALL_CAPS with underscores (e.g., PI, MAX_AGE, CLASS_SIZE)
-    - This signals to programmers: "Don't try to change this!"
+    TYPES OF EXPRESSIONS:
 
-    WHEN TO USE CONSTANTS:
-    - Fixed values that never change (PI, speed of light, etc.)
-    - Configuration values (max login attempts, timeout duration)
-    - Magic numbers that appear multiple times in code
+    1. ARITHMETIC EXPRESSIONS:
+       - Result is a number
+       - Example: 10 + 5 * 2 evaluates to 20
+       - Example: (x - 3) * 2 evaluates to a number
 
-    ADVANTAGE:
-    - Prevents accidental changes
-    - Makes code more maintainable
-    - Easier to update values globally
+    2. BOOLEAN EXPRESSIONS:
+       - Result is true or false
+       - Example: x > 5 evaluates to true or false
+       - Example: (age >= 18) && (hasLicense) evaluates to true or false
+
+    3. STRING EXPRESSIONS:
+       - Result is text
+       - Example: "Hello " + name evaluates to "Hello Ahmed"
+
+    EXPRESSION EVALUATION:
+    - C# reads expressions left to right (mostly)
+    - Follows operator precedence (PEMDAS/BODMAS)
+    - Evaluates to ONE final result
+
+    STORING EXPRESSION RESULTS:
+    - You can store the result of any expression in a variable
+    - The variable must be compatible with the result type
+    - Example: int result = 10 + 5;
+    - Example: bool isValid = (age >= 18);
+
+    USING EXPRESSIONS DIRECTLY:
+    - You can use expressions directly without storing them
+    - Example: Console.WriteLine(10 + 5);
+    - Example: if (x > 5) { ... }
 */
 
-//Console.WriteLine("--- SECTION 8: CONSTANTS ---");
+
+//Console.WriteLine("--- SECTION 6: WHAT ARE EXPRESSIONS? ---");
 //Console.WriteLine();
 
-//const double PI = 3.14159;
-//const int MAX_STUDENTS = 100;
-//const string COURSE_NAME = "C# Fundamentals";
-
-//Console.WriteLine($"Pi value: {PI}");
-//Console.WriteLine($"Max students: {MAX_STUDENTS}");
-//Console.WriteLine($"Course name: {COURSE_NAME}");
-//Console.WriteLine("(These values cannot be changed—they're constants!)");
+//Console.WriteLine("Arithmetic Expressions (result is a number):");
+//int expr1 = 10 + 5;
+//int expr2 = 10 * 2 + 5;
+//int expr3 = (10 + 5) * 2;
+//Console.WriteLine($"10 + 5 = {expr1}");
+//Console.WriteLine($"10 * 2 + 5 = {expr2}");
+//Console.WriteLine($"(10 + 5) * 2 = {expr3}");
 //Console.WriteLine();
 
-// This would cause an error if we uncommented it:
-// PI = 3.14; // ERROR: Cannot assign to const!
+//Console.WriteLine("Boolean Expressions (result is true or false):");
+//int testAge = 15;
+//bool isAdult = testAge >= 18; //
+//bool isPaid = true;
+//bool canVote = isAdult && isPaid; //
+//Console.WriteLine($"testAge >= 18 = {isAdult}");
+//Console.WriteLine($"isAdult && isPaid = {canVote}");
+//Console.WriteLine();
+
+//Console.WriteLine("Expressions used directly in Console.WriteLine:");
+//Console.WriteLine($"Result of 100 / 4 + 10: {100 / 4 + 10}");
+//Console.WriteLine($"Is 50 > 30? {50 > 30}");
+//Console.WriteLine();
 
 // ============================================================================
-// SECTION 9: DEFAULT VALUES OF DATA TYPES
+// SECTION 7: STRING HANDLING & CONCATENATION
 // ============================================================================
+
 
 /*
-    DEFAULT VALUES:
-    When variables are declared but NOT initialized, they have default values:
+    STRING FUNDAMENTALS:
+    - Strings are sequences of characters (text)
+    - Enclosed in double quotes: "hello", "C# Programming"
+    - Can contain spaces, numbers, and special characters
 
-    VALUE TYPES:
-    - int, double, float, char: Default is 0 or equivalent
-    - bool: Default is false
+    STRING CONCATENATION:
+    Combining multiple strings into one.
 
-    REFERENCE TYPES:
-    - string: Default is null (no value)
-    - objects: Default is null
+    METHOD 1: THE + OPERATOR (CONCATENATION)
+    - Joins strings end-to-end
+    - Also converts non-strings to strings automatically
+    - Syntax: string1 + string2 + string3
 
-    IMPORTANT FOR BEGINNERS:
-    - In local variables (inside methods), you MUST initialize before use
-    - Global variables auto-initialize to default
-    - Using uninitialized local variables causes compilation errors
+    Example:
+    string firstName = "Ahmed";
+    string lastName = "Hassan";
+    string fullName = firstName + " " + lastName;
+    Result: "Ahmed Hassan"
+
+    Note the space: " " is important for proper spacing!
+
+    METHOD 2: STRING INTERPOLATION (RECOMMENDED)
+    - Uses $"...{variable}" syntax
+    - More readable than concatenation
+    - Can include expressions inside {}
+
+    Example:
+    Console.WriteLine($"Hello, {firstName} {lastName}!");
+    Result: "Hello, Ahmed Hassan!"
+
+    IMPORTANT STRING METHODS:
+    (Methods are functions that belong to objects - we'll cover this more later)
+
+    1. .Length - Returns the number of characters in a string
+       "Hello".Length = 5
+       "".Length = 0
+
+    2. .ToUpper() - Converts to UPPERCASE
+       "hello".ToUpper() = "HELLO"
+
+    3. .ToLower() - Converts to lowercase
+       "HELLO".ToLower() = "hello"
+
+    4. .Substring(start, length) - Extracts part of a string
+       "Hello".Substring(1, 3) = "ell"
+
+    5. .Contains(text) - Checks if string contains text
+       "Hello World".Contains("World") = true
+
+    6. .Replace(old, new) - Replaces text
+       "Hello World".Replace("World", "C#") = "Hello C#"
+
+    7. .Trim() - Removes spaces from start/end
+       "  Hello  ".Trim() = "Hello"
+
+    ESCAPE SEQUENCES (Special characters in strings):
+    \" - Double quote
+    \\ - Backslash
+    \n - Newline
+    \t - Tab
+
+    Example:
+    Console.WriteLine("He said \"Hello!\"");
+    Output: He said "Hello!"
 */
 
-//Console.WriteLine("--- SECTION 9: DEFAULT VALUES ---");
+// My name is "Bakare". Am a Nigerian \ okay.
+//Console.WriteLine("My name is \"Bakare\". Am a Nigerian \\ okay.\n\n");
+//Console.WriteLine("Hello world\n");
+//Console.WriteLine("Hello world");
+//Console.WriteLine("Hello world");
+//Console.WriteLine("Hello world");
+
+
+//Console.WriteLine("--- SECTION 7: STRING HANDLING & CONCATENATION ---");
 //Console.WriteLine();
 
-//int unitializedInt;  // Not initialized yet
-//// Console.WriteLine(unitializedInt); // ERROR in local scope!
+//string firstName = "Gideon";
+//string lastName = "Adeyemi";
 
-//// But if we initialize:
-//int initializedInt = 0;
-//Console.WriteLine($"Initialized int: {initializedInt}");
-
-//bool unintializedBool = false; // Must initialize in local scope
-//Console.WriteLine($"Uninitialized bool treated as: {unintializedBool}");
-
-//string unintializedString = null; // No value assigned
-//Console.WriteLine($"Uninitialized string: {unintializedString}");
-
+//Console.WriteLine("String Concatenation (using +):");
+//string fullName = firstName + " " + lastName;
+//Console.WriteLine($"firstName: {firstName}");
+//Console.WriteLine($"lastName: {lastName}");
+//Console.WriteLine($"fullName (concatenated): {fullName}");
 //Console.WriteLine();
 
-// ============================================================================
-// SECTION 10: TYPE CONVERSION (IMPLICIT & EXPLICIT)
-// ============================================================================
-
-/*
-    WHAT IS TYPE CONVERSION?
-    - Converting a value from one data type to another
-    - Sometimes automatic, sometimes requires explicit action
-
-    IMPLICIT CONVERSION (Automatic - Safe):
-    - Happens automatically when converting to a "larger" type
-    - No data loss possible
-    - Syntax: No casting needed
-    - Example: int → double (25 becomes 25.0)
-
-    EXPLICIT CONVERSION (Manual - Requires Casting):
-    - Must be done manually using casting syntax
-    - Risk of data loss (e.g., 25.7 → 25)
-    - Syntax: (targetType)value
-    - Example: (int)25.7 becomes 25
-
-    WHY EACH ONE?
-    - Implicit: Safe automatic conversions
-    - Explicit: When you know what you're doing and accept the risk
-*/
-
-//Console.WriteLine("--- SECTION 10: TYPE CONVERSION ---");
+//Console.WriteLine("String Interpolation (using $\"{variable}\"):");
+//string greeting = $"Welcome, {firstName}!";
+//Console.WriteLine(greeting);
 //Console.WriteLine();
 
-//// Implicit Conversion (int to double - safe, automatic)
-//int wholeNumber = 10;
-//double decimalNumber = wholeNumber;  // Automatic conversion
-//Console.WriteLine($"Int {wholeNumber} implicitly converted to double: {decimalNumber}");
-
-//// Explicit Conversion / Casting (double to int - potential data loss)
-//double originalDouble = 10.9;
-//int castedInt = (int)originalDouble;  // Explicit casting required
-//Console.WriteLine($"Double {originalDouble} explicitly cast to int: {castedInt}");
-//Console.WriteLine("Note: Decimal part (.9) was lost in the conversion!");
-
-//// String to number (common for user input)
-//string numberAsString = "42";
-//int numberFromString = int.Parse(numberAsString);
-//Console.WriteLine($"String '{numberAsString}' converted to int: {numberFromString}");
-
-//Console.WriteLine();
-
-// ============================================================================
-// SECTION 11: COMPLETE PRACTICE TASK
-// ============================================================================
-
-/*
-    COMPREHENSIVE EXERCISE:
-    Create a student profile that demonstrates all concepts learned:
-    1. Declare variables of different types
-    2. Assign realistic values
-    3. Print them in formatted output
-
-    This combines everything into one practical task!
-*/
-
-//Console.WriteLine("--- SECTION 11: COMPLETE PRACTICE TASK ---");
-//Console.WriteLine("Building a Complete Student Profile:");
-//Console.WriteLine();
-
-//// Declare and initialize student information
-//string firstName = "Ahmed";
-//string lastName = "Hassan";
-//int age = 22;
+//Console.WriteLine("Combining text and numbers:");
+//int studentID = 12345;
 //double gpa = 3.85;
-//char letterGrade = 'A';
-//bool isFullTime = true;
-//int creditHours = 15;
-//double tuitionCost = 5500.00;
-
-//// Print formatted output
-//Console.WriteLine("╔════════════════════════════════════════╗");
-//Console.WriteLine("║        STUDENT PROFILE REPORT          ║");
-//Console.WriteLine("╚════════════════════════════════════════╝");
-//Console.WriteLine();
-//Console.WriteLine($"Name:              {firstName} {lastName}");
-//Console.WriteLine($"Age:               {age} years old");
-//Console.WriteLine($"GPA:               {gpa}");
-//Console.WriteLine($"Letter Grade:      {letterGrade}");
-//Console.WriteLine($"Full-Time Student: {isFullTime}");
-//Console.WriteLine($"Credit Hours:      {creditHours}");
-//Console.WriteLine($"Tuition Cost:      ${tuitionCost:F2}");
+//Console.WriteLine($"Student {firstName} (ID: {studentID}) has GPA: {gpa}");
 //Console.WriteLine();
 
-// ============================================================================
-// SECTION 12: COMMON BEGINNER MISTAKES
-// ============================================================================
+//// String methods
+//Console.WriteLine("String Methods:");
+//string text = "Programming";
 
-/*
-    MISTAKE #1: FORGETTING SEMICOLONS
-    Wrong: int age = 25
-    Right: int age = 25;
-    Consequence: Compilation error
-
-    MISTAKE #2: TYPE MISMATCH
-    Wrong: int age = "twenty-five";
-    Right: int age = 25; or string age = "twenty-five";
-    Consequence: Compilation error
-
-    MISTAKE #3: USING WRONG DATA TYPE
-    Wrong: int height = 5.8; (loses decimal part)
-    Right: double height = 5.8;
-    Consequence: Data loss or compilation error
-
-    MISTAKE #4: NOT INITIALIZING VARIABLES BEFORE USE
-    Wrong: int age; Console.WriteLine(age);
-    Right: int age = 0; Console.WriteLine(age);
-    Consequence: Compilation error in local scope
-
-    MISTAKE #5: CASE SENSITIVITY
-    Wrong: int Age = 25; Console.WriteLine(age);
-    Right: int age = 25; Console.WriteLine(age);
-    Consequence: Error - age and Age are different!
-
-    MISTAKE #6: INVALID VARIABLE NAMES
-    Wrong: int 2students; int student-name; int student age;
-    Right: int twoStudents; int studentName; int studentAge;
-    Consequence: Syntax errors
-*/
-
-//Console.WriteLine("--- SECTION 12: COMMON BEGINNER MISTAKES ---");
+//Console.WriteLine($"Original string: \"{text}\"");
+//Console.WriteLine($"Length: {text.Length}");
+//Console.WriteLine($"Uppercase: {text.ToUpper()}");
+//Console.WriteLine($"Lowercase: {text.ToLower()}");
+//Console.WriteLine($"Contains 'gram': {text.Contains("gram")}");
+//Console.WriteLine($"Replace 'Prog' with 'Game': {text.Replace("Prog", "Game")}");
 //Console.WriteLine();
-//Console.WriteLine("Common Mistake Examples:");
-//Console.WriteLine("✓ CORRECT: int count = 10;");
-//Console.WriteLine("✗ MISTAKE: int count = 10 (missing semicolon)");
+
+//// Escape sequences
+//Console.WriteLine("Escape Sequences:");
+//Console.WriteLine("This is a line with a \"quote\" inside");
+//Console.WriteLine("Line 1\nLine 2\nLine 3");  // \n = newline
+//Console.WriteLine("Column1\tColumn2\tColumn3"); // \t = tab
 //Console.WriteLine();
-//Console.WriteLine("✓ CORRECT: double salary = 5500.50;");
-//Console.WriteLine("✗ MISTAKE: int salary = 5500.50; (wrong type, data loss)");
-//Console.WriteLine();
-//Console.WriteLine("✓ CORRECT: string name = \"Alice\";");
-//Console.WriteLine("✗ MISTAKE: int name = \"Alice\"; (type mismatch)");
-//Console.WriteLine();
-//Console.WriteLine("✓ CORRECT: int age = 25;");
-//Console.WriteLine("✗ MISTAKE: int Age = 25; then using 'age' (case sensitive)");
+
+//// String comparison
+//Console.WriteLine("String Comparison:");
+//string word1 = "hello";
+//string word2 = "hello";
+//string word3 = "Hello".ToLower();
+
+//Console.WriteLine($"word1: \"{word1}\"");
+//Console.WriteLine($"word2: \"{word2}\"");
+//Console.WriteLine($"word3: \"{word3}\"");
+//Console.WriteLine($"word1 == word2: {word1 == word2}");  // true
+//Console.WriteLine($"word1 == word3: {word1 == word3}");  // false (case-sensitive!)
 //Console.WriteLine();
 
 // ============================================================================
-// SECTION 13: MINI CHALLENGE FOR STUDENTS
+// SECTION 8: PRACTICAL EXAMPLES - COMBINING EVERYTHING
 // ============================================================================
 
 /*
-    MINI CHALLENGE - PRACTICE TASKS:
-
-    Challenge 1: Create Your Own Profile
-    - Store your name, age, favorite color, and whether you like coding
-    - Print them using string interpolation
-
-    Challenge 2: Simple Calculation
-    - Store two numbers in variables
-    - Add them together and display the result
-
-    Challenge 3: Type Conversion
-    - Store a decimal number
-    - Convert it to integer and compare the original vs converted
-
-    Challenge 4: Constants
-    - Define a constant for the course name
-    - Define a constant for the year
-    - Use them in a sentence
-
-    Challenge 5: Mixed Types
-    - Create variables: book title (string), pages (int), price (double), borrowed (bool)
-    - Print a complete book description
+    REAL-WORLD SCENARIOS:
+    These examples combine operators, expressions, and strings to solve
+    practical problems that programmers face every day.
 */
 
-//Console.WriteLine("--- SECTION 13: MINI CHALLENGES ---");
-//Console.WriteLine();
-//Console.WriteLine("CHALLENGE 1: Modify the student profile above with your own data!");
-//Console.WriteLine("CHALLENGE 2: Create a variable for your favorite food and print it!");
-//Console.WriteLine("CHALLENGE 3: Store a decimal number and cast it to integer!");
-//Console.WriteLine("CHALLENGE 4: Define constants for your school and year!");
-//Console.WriteLine("CHALLENGE 5: Create a book record (title, pages, price, borrowed)!");
+//Console.WriteLine("--- SECTION 8: PRACTICAL EXAMPLES ---");
 //Console.WriteLine();
 
-//// Example Mini Challenge Solution:
-//Console.WriteLine("--- MINI CHALLENGE EXAMPLE SOLUTION ---");
+//// Example 1: Calculate age and eligibility
+//Console.WriteLine("Example 1: Age Eligibility Checker");
+//string personName = "Alice";
+//int birthYear = 2000;
+//int currentYear = 2024;
+
+//int age = currentYear - birthYear;
+//bool canVote = age >= 18;
+//bool canDrink = age >= 21;
+
+//Console.WriteLine($"Name: {personName}");
+//Console.WriteLine($"Age: {age}");
+//Console.WriteLine($"Can vote (18+): {canVote}");
+//Console.WriteLine($"Can drink (21+): {canDrink}");
 //Console.WriteLine();
 
-//// Challenge 1: Student Profile
-//string studentFirstName = "Sarah";
-//int studentAge1 = 19;
-//string favoriteColor = "Blue";
-//bool likeCoding = true;
+//// Example 2: Grade calculation and status
+//Console.WriteLine("Example 2: Student Grade Calculator");
+//int math = 85;
+//int english = 92;
+//int science = 78;
 
-//Console.WriteLine($"Name: {studentFirstName}");
-//Console.WriteLine($"Age: {studentAge1}");
-//Console.WriteLine($"Favorite Color: {favoriteColor}");
-//Console.WriteLine($"Likes Coding: {likeCoding}");
+//int totalScore = math + english + science;
+//double averageScore = totalScore / 3.0;  // Note: 3.0 for decimal result
+//bool passed = averageScore >= 60;
+
+//Console.WriteLine($"Math: {math}, English: {english}, Science: {science}");
+//Console.WriteLine($"Total: {totalScore}, Average: {averageScore:F2}");
+//Console.WriteLine($"Passed: {passed}");
 //Console.WriteLine();
 
-//// Challenge 2: Simple Calculation
-//int firstNumber = 15;
-//int secondNumber = 25;
-//int sum = firstNumber + secondNumber;
-//Console.WriteLine($"{firstNumber} + {secondNumber} = {sum}");
+//// Example 3: Shopping discount calculator
+//Console.WriteLine("Example 3: Shopping Discount Calculator");
+//double originalPrice = 100;
+//int discountPercent = 15;
+//bool isMember = true;
+
+//double discount = (originalPrice * discountPercent) / 100;
+//double memberBonus = isMember ? originalPrice * 0.05 : 0;  // ternary operator (bonus)
+//double finalPrice = originalPrice - discount - memberBonus;
+
+//Console.WriteLine($"Original Price: ${originalPrice}");
+//Console.WriteLine($"Discount ({discountPercent}%): ${discount}");
+//Console.WriteLine($"Member Bonus: ${memberBonus}");
+//Console.WriteLine($"Final Price: ${finalPrice:F2}");
 //Console.WriteLine();
 
-//// Challenge 3: Type Conversion
-//double decimalValue = 99.99;
-//int intValue = (int)decimalValue;
-//Console.WriteLine($"Original decimal: {decimalValue}");
-//Console.WriteLine($"Converted to int: {intValue}");
-//Console.WriteLine($"Difference: {decimalValue - intValue}");
+//// Example 4: String manipulation for user input processing
+//Console.WriteLine("Example 4: String Processing");
+//string userInput = "  CSharp Programming  ";
+
+//string cleaned = userInput.Trim();
+//string uppercase = cleaned.ToUpper();
+//bool hasSpaces = cleaned.Contains(" ");
+
+//Console.WriteLine($"Raw input: \"{userInput}\"");
+//Console.WriteLine($"After Trim: \"{cleaned}\"");
+//Console.WriteLine($"Uppercase: \"{uppercase}\"");
+//Console.WriteLine($"Contains spaces: {hasSpaces}");
 //Console.WriteLine();
 
-//// Challenge 4: Constants
-//const string SCHOOL_NAME = "Kodecamp";
-//const int CURRENT_YEAR = 2024;
-//Console.WriteLine($"Welcome to {SCHOOL_NAME} in {CURRENT_YEAR}!");
+// ============================================================================
+// SECTION 9: COMMON MISTAKES & BEST PRACTICES
+// ============================================================================
+
+/*
+    COMMON MISTAKE #1: Using = instead of ==
+    Wrong:  if (age = 18) { }   // ASSIGNMENT, not comparison!
+    Right:  if (age == 18) { }  // COMPARISON
+
+    COMMON MISTAKE #2: Forgetting operator precedence
+    Wrong:  int result = 10 + 5 * 2;  // Programmer expected 30
+    Right:  int result = (10 + 5) * 2;  // Clear intent with parentheses
+
+    COMMON MISTAKE #3: Integer division losing decimals
+    Wrong:  double result = 10 / 3;     // Result: 3 (not 3.333...)
+    Right:  double result = 10.0 / 3;   // Result: 3.333...
+
+    COMMON MISTAKE #4: Concatenating without spaces
+    Wrong:  string name = "John"+"Doe";     // "JohnDoe" (no space!)
+    Right:  string name = "John" + " " + "Doe";  // "John Doe"
+
+    COMMON MISTAKE #5: Case sensitivity in string comparison
+    Wrong:  "hello" == "Hello"  // false! Strings are case-sensitive
+    Right:  "hello".ToLower() == "Hello".ToLower()  // true
+
+    BEST PRACTICES:
+
+    1. Use parentheses for clarity, even if not required
+       Good: (10 + 5) * 2 = 30 (clear intent)
+       Instead of: 10 + 5 * 2 = 20 (requires knowing precedence)
+
+    2. Use meaningful variable names
+       Good: int totalScore = math + english;
+       Bad: int x = a + b;
+
+    3. Use string interpolation instead of concatenation
+       Good: Console.WriteLine($"Score: {score}");
+       Bad: Console.WriteLine("Score: " + score);
+
+    4. Be consistent with spacing and formatting
+       Makes code easier to read
+
+    5. Add comments for complex expressions
+       Helps other programmers (and future you!) understand the logic
+
+    6. Use .ToLower() or .ToUpper() for case-insensitive comparisons
+       When comparing user input or data
+*/
+
+//Console.WriteLine("--- SECTION 9: COMMON MISTAKES ---");
+//Console.WriteLine();
+//Console.WriteLine("❌ MISTAKE: Integer division loses decimals");
+//int intDiv = 10 / 3;
+//Console.WriteLine($"10 / 3 = {intDiv}  (wrong: no decimals)");
+
+//Console.WriteLine();
+//Console.WriteLine("✅ CORRECT: Use decimal for precise division");
+//double decimalDiv = 10.0 / 3.0;
+//Console.WriteLine($"10.0 / 3.0 = {decimalDiv:F3}  (correct: shows decimals)");
 //Console.WriteLine();
 
-//// Challenge 5: Book Record
-//string bookTitle = "Clean Code";
-//int bookPages = 464;
-//double bookPrice = 45.99;
-//bool isBookBorrowed = false;
-//Console.WriteLine($"Book: {bookTitle}");
-//Console.WriteLine($"Pages: {bookPages}");
-//Console.WriteLine($"Price: ${bookPrice}");
-//Console.WriteLine($"Borrowed: {isBookBorrowed}");
+// ============================================================================
+// SECTION 10: MINI CHALLENGES
+// ============================================================================
+
+/*
+    CHALLENGE 1: Temperature Converter
+    - Convert Celsius to Fahrenheit: F = (C * 9/5) + 32
+    - Display the result with string interpolation
+
+    CHALLENGE 2: Simple Calculator
+    - Take two numbers and perform all operations: +, -, *, /
+    - Display results for each operation
+
+    CHALLENGE 3: Age Verification
+    - Check if person is old enough to vote (18+) AND has ID
+    - Display eligibility message
+
+    CHALLENGE 4: String Manipulation
+    - Take a string, find its length, convert to uppercase, check for vowels
+
+    CHALLENGE 5: Discount Calculator
+    - Calculate final price after discount
+    - Check if customer qualifies for extra member discount
+*/
+
+//Console.WriteLine("--- SECTION 10: MINI CHALLENGES (WITH SOLUTIONS) ---");
+//Console.WriteLine();
+
+//// Challenge 1: Temperature Converter
+//Console.WriteLine("Challenge 1: Temperature Converter");
+//double celsius = 25;
+//double fahrenheit = (celsius * 9 / 5) + 32;
+//Console.WriteLine($"{celsius}°C = {fahrenheit}°F");
+//Console.WriteLine();
+
+//// Challenge 2: Simple Calculator
+//Console.WriteLine("Challenge 2: Simple Calculator");
+//int num_a = 20;
+//int num_b = 5;
+//Console.WriteLine($"Operations with {num_a} and {num_b}:");
+//Console.WriteLine($"Addition: {num_a} + {num_b} = {num_a + num_b}");
+//Console.WriteLine($"Subtraction: {num_a} - {num_b} = {num_a - num_b}");
+//Console.WriteLine($"Multiplication: {num_a} * {num_b} = {num_a * num_b}");
+//Console.WriteLine($"Division: {num_a} / {num_b} = {num_a / num_b}");
+//Console.WriteLine();
+
+//// Challenge 3: Age Verification
+//Console.WriteLine("Challenge 3: Age Verification");
+//string personName_3 = "Bob";
+//int personAge = 20;
+//bool hasID = true;
+//bool canVote_3 = personAge >= 18 && hasID;
+//Console.WriteLine($"{personName_3} is {personAge} and has ID: {hasID}");
+//Console.WriteLine($"Can vote: {canVote_3}");
+//Console.WriteLine();
+
+//// Challenge 4: String Manipulation
+//Console.WriteLine("Challenge 4: String Manipulation");
+//string challenge_str = "Programming";
+//int strLength = challenge_str.Length;
+//string strUpper = challenge_str.ToUpper();
+//bool hasA = challenge_str.Contains("a");
+//bool hasO = challenge_str.Contains("o");
+//Console.WriteLine($"String: \"{challenge_str}\"");
+//Console.WriteLine($"Length: {strLength}");
+//Console.WriteLine($"Uppercase: {strUpper}");
+//Console.WriteLine($"Contains 'a': {hasA}");
+//Console.WriteLine($"Contains 'o': {hasO}");
+//Console.WriteLine();
+
+//// Challenge 5: Discount Calculator
+//Console.WriteLine("Challenge 5: Discount Calculator");
+//double price = 100;
+//int discount_percent = 20;
+//bool isMember_5 = true;
+
+//double discountAmount = price * (discount_percent / 100.0);
+//double memberDiscount = isMember_5 ? price * 0.1 : 0;
+//double final_price = price - discountAmount - memberDiscount;
+
+//Console.WriteLine($"Original: ${price}");
+//Console.WriteLine($"Discount ({discount_percent}%): ${discountAmount}");
+//Console.WriteLine($"Member bonus (10%): ${memberDiscount}");
+//Console.WriteLine($"Final price: ${final_price}");
 //Console.WriteLine();
 
 // ============================================================================
@@ -764,21 +830,44 @@ int _ag e1 = 25
 //Console.WriteLine("═══════════════════════════════════════════════════════════");
 //Console.WriteLine();
 //Console.WriteLine("KEY TAKEAWAYS:");
-//Console.WriteLine("1. Data types specify what kind of data variables hold");
-//Console.WriteLine("2. Common types: int, double, float, char, bool, string");
-//Console.WriteLine("3. Variables are named containers for storing values");
-//Console.WriteLine("4. Use string interpolation $\"...{variable}\" for output");
-//Console.WriteLine("5. Constants cannot change after initialization");
-//Console.WriteLine("6. Type conversion: implicit (automatic) or explicit (casting)");
-//Console.WriteLine("7. Follow naming conventions and initialize variables properly");
+//Console.WriteLine();
+//Console.WriteLine("1. ARITHMETIC OPERATORS (+, -, *, /, %):");
+//Console.WriteLine("   - Perform mathematical calculations");
+//Console.WriteLine("   - Follow PEMDAS/BODMAS precedence");
+//Console.WriteLine("   - % returns remainder (useful for even/odd)");
+//Console.WriteLine();
+//Console.WriteLine("2. ASSIGNMENT OPERATORS (=, +=, -=, etc.):");
+//Console.WriteLine("   - Store values in variables");
+//Console.WriteLine("   - Compound operators are shorthand (x += 5 means x = x + 5)");
+//Console.WriteLine();
+//Console.WriteLine("3. COMPARISON OPERATORS (==, !=, <, >, <=, >=):");
+//Console.WriteLine("   - Compare values");
+//Console.WriteLine("   - Always return true or false");
+//Console.WriteLine("   - DO NOT confuse = with ==");
+//Console.WriteLine();
+//Console.WriteLine("4. LOGICAL OPERATORS (&&, ||, !):");
+//Console.WriteLine("   - Combine boolean conditions");
+//Console.WriteLine("   - && means both must be true");
+//Console.WriteLine("   - || means at least one must be true");
+//Console.WriteLine("   - ! reverses the boolean value");
+//Console.WriteLine();
+//Console.WriteLine("5. EXPRESSIONS:");
+//Console.WriteLine("   - Combinations of operators and values");
+//Console.WriteLine("   - Evaluate to a single result");
+//Console.WriteLine("   - Can be stored in variables or used directly");
+//Console.WriteLine();
+//Console.WriteLine("6. STRING HANDLING:");
+//Console.WriteLine("   - Use + for concatenation or $\"...{variable}\" for interpolation");
+//Console.WriteLine("   - String methods: Length, ToUpper(), ToLower(), Contains(), Replace()");
+//Console.WriteLine("   - Strings are case-sensitive in comparisons");
 //Console.WriteLine();
 //Console.WriteLine("NEXT LESSONS:");
-//Console.WriteLine("- Operators (+, -, *, /, %, ==, !=, etc.)");
 //Console.WriteLine("- Conditional statements (if, else, switch)");
 //Console.WriteLine("- Loops (for, while, foreach)");
 //Console.WriteLine("- Methods and functions");
 //Console.WriteLine("- Arrays and collections");
+//Console.WriteLine("- Object-oriented programming");
 //Console.WriteLine();
 //Console.WriteLine("═══════════════════════════════════════════════════════════");
-//Console.WriteLine("           GREAT JOB COMPLETING THIS LESSON! 🎉");
+//Console.WriteLine("         EXCELLENT WORK! YOU'VE MASTERED OPERATORS! 🎉");
 //Console.WriteLine("═══════════════════════════════════════════════════════════");
