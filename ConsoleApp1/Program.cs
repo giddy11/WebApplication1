@@ -39,8 +39,8 @@
 */
 
 // This is the entry point of our program
-Console.WriteLine("========== C# DATA TYPES & VARIABLES LESSON ==========");
-Console.WriteLine();
+//Console.WriteLine("========== C# DATA TYPES & VARIABLES LESSON ==========");
+//Console.WriteLine();
 
 // ============================================================================
 // SECTION 2: WHAT ARE DATA TYPES?
@@ -65,9 +65,9 @@ Console.WriteLine();
       (We'll focus on value types first as beginners)
 */
 
-Console.WriteLine("--- SECTION 2: WHAT ARE DATA TYPES? ---");
-Console.WriteLine("Data types tell C# what kind of information we're storing.");
-Console.WriteLine();
+//Console.WriteLine("--- SECTION 2: WHAT ARE DATA TYPES? ---");
+//Console.WriteLine("Data types tell C# what kind of information we're storing.");
+//Console.WriteLine();
 
 // ============================================================================
 // SECTION 3: PRIMITIVE (BUILT-IN) DATA TYPES
@@ -77,7 +77,7 @@ Console.WriteLine();
     THE MOST COMMON PRIMITIVE DATA TYPES IN C#:
 
     1. INT - Integer (whole numbers)
-       Range: -2,147,483,648 to 2,147,483,647
+       Range: -2,147,483,648 to 2,147,483,647 //2, 147, 483, 648
        Example: 25, -10, 0, 1000
        Use for: Age, count, quantity, scores
 
@@ -107,8 +107,8 @@ Console.WriteLine();
        Use for: Names, messages, addresses, any text
 */
 
-Console.WriteLine("--- SECTION 3: PRIMITIVE DATA TYPES ---");
-Console.WriteLine();
+//Console.WriteLine("--- SECTION 3: PRIMITIVE DATA TYPES ---");
+//Console.WriteLine();
 
 // ============================================================================
 // SECTION 4 & 5: VARIABLES - DECLARATION & INITIALIZATION
@@ -131,16 +131,19 @@ Console.WriteLine();
     COMBINED (Declaration + Initialization):
     dataType variableName = value;
     Example: int age = 25;
+int _ag e1 = 25
 
     VARIABLE NAMING RULES (IMPORTANT):
     1. Start with a letter or underscore (_)
     2. Can contain letters, numbers, and underscores
     3. Cannot contain spaces
-    4. Cannot be a C# keyword (like int, class, etc.)
+    4. Cannot be a C# keyword (like int, class, etc.) - TASK TO BE DONE
     5. Case-sensitive (age ≠ Age ≠ AGE)
     6. Use descriptive names (age is better than a)
     7. Convention: Use camelCase (firstName, not FirstName for variables)
 */
+
+//developer 1 - kelvin
 
 //Console.WriteLine("--- SECTION 4 & 5: DECLARING & INITIALIZING VARIABLES ---");
 //Console.WriteLine();
@@ -171,6 +174,15 @@ Console.WriteLine();
 // ============================================================================
 // SECTION 6: PRINTING VARIABLES (THREE METHODS)
 // ============================================================================
+
+//int age = 35;
+//Console.WriteLine("The student's age is age");
+
+//string variable = "First";
+//string variable2 = "Second";
+//Console.WriteLine("Text here " + variable + " more text " + variable2);
+
+//Console.WriteLine($"Text here {variable} more text {variable2}");
 
 /*
     ════════════════════════════════════════════════════════════════════════════
@@ -319,7 +331,7 @@ Console.WriteLine();
     (Clear pattern, easy to read!)
 
     ════════════════════════════════════════════════════════════════════════════
-    METHOD 3: COMPOSITE FORMATTING (Less common, but useful sometimes)
+    METHOD 3: COMPOSITE FORMATTING (Less common, but useful sometimes) TASK TO BE  DONE
     ════════════════════════════════════════════════════════════════════════════
 
     CONCEPT:
