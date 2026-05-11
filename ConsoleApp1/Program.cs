@@ -331,22 +331,22 @@ Console.WriteLine();
 //int hour = 14;
 //string timeGreeting = "";
 
-//if (hour < 12)
-//{
-//    timeGreeting = "Good morning! ☀️";
-//}
-//else if (hour < 17)
-//{
-//    timeGreeting = "Good afternoon! 🌤️";
-//}
-//else if (hour < 21)
-//{
-//    timeGreeting = "Good evening! 🌙";
-//}
-//else
-//{
-//    timeGreeting = "Good night! 😴";
-//}
+if (hour < 12)
+{
+    timeGreeting = "Good morning! ☀️";
+}
+else if (hour < 17)
+{
+    timeGreeting = "Good afternoon! 🌤️";
+}
+else if (hour < 21)
+{
+    timeGreeting = "Good evening! 🌙";
+}
+else
+{
+    timeGreeting = "Good night! 😴";
+}
 
 //Console.WriteLine($"Time: {hour}:00 → {timeGreeting}");
 //Console.WriteLine();
