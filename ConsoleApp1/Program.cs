@@ -1,79 +1,138 @@
+﻿/*
+    ============================================================================
+    C# FUNDAMENTALS: LOOPS
+    ============================================================================
 
+    LESSON OVERVIEW:
+    This lesson covers the concept of loops in C#:
+    - What are loops?
+    - Types of loops (for, while, do-while, foreach)
+    - Practical examples and use cases
 
+    WHY ARE LOOPS IMPORTANT?
+    - Loops allow programs to repeat actions efficiently.
+    - They reduce code duplication and improve maintainability.
+    - Essential for working with collections, arrays, and repetitive tasks.
 
+    PREREQUISITE KNOWLEDGE:
+    - Data types, variables, operators, and expressions
+    ============================================================================
+*/
 
+Console.WriteLine("═══════════════════════════════════════════════════════════════════════");
+Console.WriteLine("        C# LOOPS: FOR, WHILE, DO-WHILE, FOREACH");
+Console.WriteLine("═══════════════════════════════════════════════════════════════════════");
+Console.WriteLine();
 
-Console.WriteLine("Welcome to the lesson on Loops in C#!");
-Console.WriteLine("Loops are a fundamental concept in programming that allow you to execute a block of code multiple times.");
-Console.WriteLine("They are useful for tasks that require repetition, such as iterating over data, performing calculations, or automating repetitive tasks.");
+// ============================================================================
+// PART 1: INTRODUCTION TO LOOPS
+// ============================================================================
 
-// Why Learn Loops?
-Console.WriteLine("\nWhy Learn Loops?");
-Console.WriteLine("1. Loops help reduce code duplication.");
-Console.WriteLine("2. They make your code more efficient and easier to maintain.");
-Console.WriteLine("3. Loops are essential for working with collections, arrays, and data structures.");
+Console.WriteLine("╔═══════════════════════════════════════════════════════════════════════╗");
+Console.WriteLine("║                    PART 1: INTRODUCTION TO LOOPS                     ║");
+Console.WriteLine("╚═══════════════════════════════════════════════════════════════════════╝");
+Console.WriteLine();
 
-// Types of Loops in C#
-Console.WriteLine("\nTypes of Loops in C#:");
+Console.WriteLine("WHAT ARE LOOPS?");
+Console.WriteLine("Loops are constructs that allow you to repeat a block of code multiple times.");
+Console.WriteLine("They are useful for tasks like iterating over data, performing calculations, or automating repetitive actions.");
+Console.WriteLine();
+
+Console.WriteLine("TYPES OF LOOPS IN C#:");
 Console.WriteLine("1. For Loop");
 Console.WriteLine("2. While Loop");
 Console.WriteLine("3. Do-While Loop");
 Console.WriteLine("4. Foreach Loop");
+Console.WriteLine();
 
-// Examples and Explanations
+// ============================================================================
+// PART 2: EXAMPLES OF LOOPS
+// ============================================================================
+
+Console.WriteLine("╔═══════════════════════════════════════════════════════════════════════╗");
+Console.WriteLine("║                    PART 2: EXAMPLES OF LOOPS                         ║");
+Console.WriteLine("╚═══════════════════════════════════════════════════════════════════════╝");
+Console.WriteLine();
 
 // 1. For Loop
-Console.WriteLine("\nFor Loop Example:");
+Console.WriteLine("--- FOR LOOP ---");
 Console.WriteLine("The for loop is used when the number of iterations is known.");
-Console.WriteLine("Syntax: for (initialization; condition; increment) { /* code */ }");
+Console.WriteLine("Example: Counting from 1 to 5");
 for (int i = 1; i <= 5; i++)
 {
     Console.WriteLine($"Iteration {i}");
 }
+Console.WriteLine();
 
 // 2. While Loop
-Console.WriteLine("\nWhile Loop Example:");
+Console.WriteLine("--- WHILE LOOP ---");
 Console.WriteLine("The while loop is used when the number of iterations is not known beforehand.");
-Console.WriteLine("Syntax: while (condition) { /* code */ }");
+Console.WriteLine("Example: Counting until a condition is met");
 int count = 1;
 while (count <= 5)
 {
     Console.WriteLine($"Count: {count}");
     count++;
 }
+Console.WriteLine();
 
 // 3. Do-While Loop
-Console.WriteLine("\nDo-While Loop Example:");
-Console.WriteLine("The do-while loop is similar to the while loop, but it guarantees at least one execution of the code block.");
-Console.WriteLine("Syntax: do { /* code */ } while (condition);");
+Console.WriteLine("--- DO-WHILE LOOP ---");
+Console.WriteLine("The do-while loop guarantees at least one execution of the code block.");
+Console.WriteLine("Example: Counting from 1 to 5");
 int number = 1;
 do
 {
     Console.WriteLine($"Number: {number}");
     number++;
 } while (number <= 5);
+Console.WriteLine();
 
 // 4. Foreach Loop
-Console.WriteLine("\nForeach Loop Example:");
+Console.WriteLine("--- FOREACH LOOP ---");
 Console.WriteLine("The foreach loop is used to iterate over a collection or array.");
-Console.WriteLine("Syntax: foreach (var item in collection) { /* code */ }");
+Console.WriteLine("Example: Iterating through an array of fruits");
 string[] fruits = { "Apple", "Banana", "Cherry" };
 foreach (string fruit in fruits)
 {
     Console.WriteLine(fruit);
 }
+Console.WriteLine();
 
-// Practice Exercises
-Console.WriteLine("\nPractice Exercises:");
+// ============================================================================
+// PART 3: PRACTICE EXERCISES
+// ============================================================================
 
-// Exercise 1: Print numbers from 1 to 10 using a for loop.
-Console.WriteLine("Exercise 1: Use a for loop to print numbers from 1 to 10.");
+Console.WriteLine("╔═══════════════════════════════════════════════════════════════════════╗");
+Console.WriteLine("║                    PART 3: PRACTICE EXERCISES                        ║");
+Console.WriteLine("╚═══════════════════════════════════════════════════════════════════════╝");
+Console.WriteLine();
 
-// Exercise 2: Use a while loop to calculate the sum of numbers from 1 to 5.
-Console.WriteLine("Exercise 2: Use a while loop to calculate the sum of numbers from 1 to 5.");
+Console.WriteLine("EXERCISE 1: Use a for loop to print numbers from 1 to 10.");
+Console.WriteLine("EXERCISE 2: Use a while loop to calculate the sum of numbers from 1 to 5.");
+Console.WriteLine("EXERCISE 3: Use a do-while loop to display a menu until the user selects 'Exit'.");
+Console.WriteLine("EXERCISE 4: Use a foreach loop to iterate through an array of colors and print each color.");
+Console.WriteLine();
 
-// Exercise 3: Use a do-while loop to display a menu until the user selects 'Exit'.
-Console.WriteLine("Exercise 3: Use a do-while loop to display a menu until the user selects 'Exit'.");
+// ============================================================================
+// LESSON SUMMARY
+// ============================================================================
 
-// Exercise 4: Iterate through an array of colors and print each color using a foreach loop.
-Console.WriteLine("Exercise 4: Use a foreach loop to iterate through an array of colors and print each color.");
+Console.WriteLine("═══════════════════════════════════════════════════════════════════════");
+Console.WriteLine("                      LESSON SUMMARY");
+Console.WriteLine("═══════════════════════════════════════════════════════════════════════");
+Console.WriteLine();
+
+Console.WriteLine("✓ Loops allow efficient repetition of code.");
+Console.WriteLine("✓ Types of loops: for, while, do-while, foreach.");
+Console.WriteLine("✓ Use the appropriate loop based on the task.");
+Console.WriteLine();
+
+Console.WriteLine("NEXT STEPS:");
+Console.WriteLine("→ Practice writing loops for different scenarios.");
+Console.WriteLine("→ Explore nested loops and advanced use cases.");
+Console.WriteLine();
+
+Console.WriteLine("═══════════════════════════════════════════════════════════════════════");
+Console.WriteLine("      CONGRATULATIONS! YOU'VE MASTERED LOOPS IN C#! 🎉");
+Console.WriteLine("═══════════════════════════════════════════════════════════════════════");
