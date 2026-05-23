@@ -1,33 +1,32 @@
-﻿// See https://aka.ms/new-console-template for more information
-//Console.WriteLine("Hello, World!");
+﻿
 
-//count until a certain condition is met. initial value = 1. value <=15
+//Things to make up a function statement syntax
+//1. Return type - int, double, bool, float, decimal, string
+//2. method name
+//3. parameters
+//4. body of the function which is enclosed in curly braces
+//5. code
+//6. return or void
 
-//int count = 0;
+//Types of functions
+//1. Void Function
+//2. Return Function
+//3. Parameterless functions
+//4. function with parameters
 
-//while (count <= 15)
-//{
-//    Console.WriteLine("Hello world - " + count++); // ask asignemt.
-//    count++;
-//}
+//Write a function gets the students details (name and age), and then prints their details to the console.
 
-//Console.WriteLine("The end of the while loop");
-
-
-// arrays of strings - mango, pawpaw, maize, etc
-// arrays of numbers - 1,2,3,4,5,6
-//FOREACH
-
-string[] names = {"Ebuka", "Daniel", "Rita"}; //ebuka, daniel, rita
-int[] numbers = { 1, 2, 3, 4, 5, 6, 7 };
-
-foreach( string name in names)
+void PrintStudentDetails(string name, int age)
 {
-    Console.WriteLine(name);
+    Console.WriteLine($"The student name is {name} and age is {age}");
 }
 
+PrintStudentDetails("Samuel", 25);
 
-foreach( int number in numbers)
-{
-    Console.WriteLine(number);
-}
+
+
+
+
+
+
+
