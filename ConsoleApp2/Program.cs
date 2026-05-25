@@ -41,3 +41,9 @@ foreach (string name in names)
 
 //A List of int data type
 List<int> numbers = new List<int>();
+
+//Read up the following:
+// Stack
+// Queue
+// HashSet
+// Dictionary
