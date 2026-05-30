@@ -1,17 +1,34 @@
-﻿// When declaring an array
-// 1. data type
-// 2. []
-// 3. the variable name
-// values which is in curly brace {}
+﻿
+//Creating the instance of the Car class
+using ConsoleApp1;
 
-int[] numbers = {1,2,3,4,5}; // 1-D
+int number = 5;
 
-numbers[2] = 10;
+List<string> students =  new List<string>();
 
-//// 2D Arrays
-//int[,] matrix;
+Car car1 = new Car();
+Car car2 = new Car();
 
-//matrix = new 
+//Modifying or writing to the property
+car1.Brand = "Toyota";
+car1.Color = "Red";
+car1.Speed = 40;
 
+car2.Brand = "Camry";
+car2.Color = "Ash";
+car2.Speed = 0;
+
+// Reading the data or property
+Console.WriteLine(car1.Brand);
+
+// Calling the method of a class
+car1.Accelerate();
+car1.Accelerate();
+car1.Accelerate();
+car1.Accelerate();
+car1.Accelerate();
+
+Console.WriteLine($"The car1 speed is: {car1.Speed}");
+Console.WriteLine($"The car1 speed is: {car2.Speed}");
 
 
