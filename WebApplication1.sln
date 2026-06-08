@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.5.11723.231
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{9022CDAF-48B6-45B4-BE8B-4311FA93089E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp3", "ConsoleApp3\ConsoleApp3.csproj", "{DB6DA3B1-1300-4821-8D46-90C3B89527CD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp4", "ConsoleApp4\ConsoleApp4.csproj", "{45A61B49-2DCF-4D76-BDDF-4830CDBAE63C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp5", "ConsoleApp5\ConsoleApp5.csproj", "{0BC2B678-3190-45BD-A009-08E75CFAE63F}"
@@ -17,14 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9022CDAF-48B6-45B4-BE8B-4311FA93089E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9022CDAF-48B6-45B4-BE8B-4311FA93089E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9022CDAF-48B6-45B4-BE8B-4311FA93089E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9022CDAF-48B6-45B4-BE8B-4311FA93089E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DB6DA3B1-1300-4821-8D46-90C3B89527CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DB6DA3B1-1300-4821-8D46-90C3B89527CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DB6DA3B1-1300-4821-8D46-90C3B89527CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DB6DA3B1-1300-4821-8D46-90C3B89527CD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{45A61B49-2DCF-4D76-BDDF-4830CDBAE63C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{45A61B49-2DCF-4D76-BDDF-4830CDBAE63C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45A61B49-2DCF-4D76-BDDF-4830CDBAE63C}.Release|Any CPU.ActiveCfg = Release|Any CPU
