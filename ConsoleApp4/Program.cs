@@ -1,42 +1,70 @@
 ﻿
-//WIthout Polymorphism concept
-using ConsoleApp4;
+//1. User enters a number
 
-//Cleaner cleaner = new Cleaner();
-//cleaner.DoWork();
+//Without exception handling:
 
-//Teacher teacher = new Teacher();
-//teacher.DoWork();
+//Console.WriteLine("Enter your age: ");
+//int age = int.Parse(Console.ReadLine());
 
-//SecurityGuard securityGuard = new SecurityGuard();
-//securityGuard.DoWork();
+//Console.WriteLine($"You are {age} years old.");
 
-//Staff staff = new Staff();
-//staff.DoWork();
+//With Exception Handling:
 
-// Polymorphism Concept
-//Staff cleaner = new Cleaner();
-//Staff teacher = new Teacher();
-//Staff securityGuard = new SecurityGuard();
-
-// usage of arrays
-//Staff[] schoolStaff = { new Teacher(), new Cleaner(), new SecurityGuard() };
-
-
-//foreach(Staff person in schoolStaff)
+//try
 //{
-//    person.DoWork();
+//    Console.WriteLine("Enter your age: ");
+//    int age = int.Parse(Console.ReadLine());
+//}
+//catch (FormatException)
+//{
+//    Console.WriteLine("Please enter a valid number.");
 //}
 
+//2. Divide by Zero
+//try
+//{
+//    Console.WriteLine("Enter a number: ");
+//    int number = int.Parse(Console.ReadLine());
 
-//Animal animal = new Animal();
+//    int result = 100 / number;
 
-//Animal cat = new Cat("melly");
-//Car car = new Car("Toyota");
-//Book book = new Book("Textbook");
-//Product product = new Product("Clothing");
-//Shape shape = new Shape();
-//Vehicle vehicle = new Vehicle("");
+//    Console.WriteLine($"Result: {result}");
+//}
+//catch (DivideByZeroException)
+//{
+//    Console.WriteLine("You cannot divide by zero.");
+//}
 
+//3. Multiple Catch Blocks
+//try
+//{
+//    Console.WriteLine("Enter a number: ");
+//    int number = int.Parse(Console.ReadLine());
 
-//Payment payment = new Payment();
+//    int result = 100 / number;
+
+//    Console.WriteLine($"Result: {result}");
+//}
+//catch (FormatException)
+//{
+//    Console.WriteLine("Please enter a valid number.");
+//}
+//catch (DivideByZeroException)
+//{
+//    Console.WriteLine("You cannot divide by zero.");
+//}
+
+//4. Generic Exception Catch
+try
+{
+    Console.WriteLine("Enter a number: ");
+    int number = int.Parse(Console.ReadLine());
+
+    int result = 100 / number;
+
+    Console.WriteLine($"Result: {result}");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"An error occured: {ex.Message}");
+}
