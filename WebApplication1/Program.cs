@@ -1,4 +1,5 @@
 using Serilog;
+using System.Text.Json;
 using WebApplication1;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,22 +20,16 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.Use(async (context, next) =>
-{
-   try
-    {
-        await next();
-        //await next.Invoke();
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Global exception caught: {ex}");
+var samplePerson = new Person { UserAge = 30, UserName = "JohnDoe" };
 
-        //Log.Error(ex, "An unhandled exception occurred while processing the request.");
-        context.Response.StatusCode = 500;
-        await context.Response.WriteAsync("An unexpected error occurred. Please try again later.");
-        //await context.Response.WriteAsJsonAsync(new { error = "An unexpected error occurred. Please try again later." });
-    }
+app.MapGet("/", () => "I am Root!");
+
+app.MapGet("/manual-json", () =>
+{
+    var jsonString = JsonSerializer.Serialize(samplePerson);
+    Log.Information("Received request for person endpoint");
+    //return jsonString;
+    return TypedResults.Text(jsonString, "application/json");
 });
 
 // Configure the HTTP request pipeline.
