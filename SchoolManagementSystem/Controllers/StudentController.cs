@@ -1,11 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SchoolManagementSystem.Models;
 using SchoolManagementSystem.Repositories;
 
 namespace SchoolManagementSystem.Controllers
 {
+    // ===================================================================
+    // AUTHORIZATION MAP for this controller (workshop Module 13 activity:
+    // "Design the Access" for Student / Teacher / Principal / Accountant).
+    //
+    //   - View (GetAll / GetById): any logged-in role. Teachers and the
+    //     Principal need it to do their jobs, and the Accountant needs it
+    //     to work out fees -- so we don't lock it down further here.
+    //   - Create / Update: Teacher or Principal only -- these are the
+    //     people who actually enrol and manage students day-to-day.
+    //   - Delete: Principal only. Removing a student record is the most
+    //     sensitive action here, so it gets the strictest rule
+    //     (Module 12: "least privilege" -- give the minimum access needed).
+    //
+    // [Authorize] on the class requires "logged in" for everything
+    // (Module 7: authentication happens first); the per-action
+    // [Authorize(Roles = ...)] attributes narrow that down further.
+    // ===================================================================
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class StudentController : Controller
     {
         protected readonly IStudentRepository _repository;
@@ -40,6 +59,7 @@ namespace SchoolManagementSystem.Controllers
 
         //POST: api/students
         [HttpPost]
+        [Authorize(Roles = RoleNames.TeacherOrPrincipal)]
         public async Task<ActionResult<StudentDto>> Create(CreateStudentDto dto)
         {
             //check if the department id exist
@@ -71,6 +91,7 @@ namespace SchoolManagementSystem.Controllers
 
         // PUT: api/students/3
         [HttpPut("{id}")]
+        [Authorize(Roles = RoleNames.TeacherOrPrincipal)]
         public async Task<ActionResult> Update(int id, Student student)
         {
             if(id != student.Id)
@@ -90,6 +111,7 @@ namespace SchoolManagementSystem.Controllers
 
         //DELETE: api/students/3
         [HttpDelete("{id}")]
+        [Authorize(Roles = RoleNames.Principal)]
         public async Task<ActionResult> Delete(int id)
         {
             var deleted = await _repository.DeleteAsync(id);

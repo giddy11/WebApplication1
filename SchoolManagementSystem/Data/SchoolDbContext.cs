@@ -14,5 +14,8 @@ namespace SchoolManagementSystem.Data
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
+
+        // Holds every signed-up account (Module 8: Users, Roles & Permissions).
+        public DbSet<User> Users { get; set; }
     }
 }
