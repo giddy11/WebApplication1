@@ -60,20 +60,43 @@ builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
+        // These are the checks run on every incoming JWT before ASP.NET Core
+        // will trust it and treat the request as "authenticated". If ANY of
+        // them fails, the request is rejected with 401 Unauthorized and
+        // [Authorize] never even gets a user to check roles against.
         options.TokenValidationParameters = new TokenValidationParameters
         {
+            // Issuer = "who created this token?" Must match the "iss" value
+            // JwtTokenService baked into the token (Jwt:Issuer below), so a
+            // token minted by some other app can't be reused here.
             ValidateIssuer = true,
             ValidIssuer = builder.Configuration["Jwt:Issuer"],
 
+            // Audience = "who was this token created for?" Must match the
+            // "aud" value in the token (Jwt:Audience), so a token meant for a
+            // different API can't be replayed against this one.
             ValidateAudience = true,
             ValidAudience = builder.Configuration["Jwt:Audience"],
 
+            // Signature check = "was this token tampered with?" We re-sign
+            // the token's contents with our secret Jwt:Key and compare. If
+            // even one character in the token changed, the signatures won't
+            // match and it's rejected -- this is what stops someone editing
+            // their own Role claim from "Student" to "Principal" by hand.
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!)),
 
+            // Expiry check = "has this token gone stale?" JwtTokenService set
+            // an "exp" (expiry) claim when it created the token
+            // (Jwt:ExpiryMinutes controls how long that window is); this
+            // rejects the token once that time has passed.
             ValidateLifetime = true,
-            ClockSkew = TimeSpan.Zero // don't allow extra grace time after the token expires
+            // Normally a small "grace period" (a few minutes) is allowed past
+            // expiry, to cover clock differences between servers. We're
+            // running everything on one machine for this workshop, so we set
+            // it to zero: expiry means expiry, no extra leeway.
+            ClockSkew = TimeSpan.Zero
         };
     });
 
